@@ -21,14 +21,13 @@ function showCard(arr) {
             <div class="btn">
               <button class="bbuy" onclick="buyprod(${e.id})">buy</button>
               <button class="bdel" onclick="delprod(${e.id})">delete</button>
-              <button class="buodate" >update</button>
+              <a class="buodate" href="./update.html" onclick="delprod(${e.id})">update</a>
             </div>
           </div>
         </div>`
     );
   });
 }
-
 function buyprod(e) {
   let arr = [];
   if (localStorage.getItem("buyed_prod")) {
@@ -40,7 +39,7 @@ function buyprod(e) {
     .then((prod) => {
       let product = prod.data;
       let exists = arr.some((p) => p.id === product.id);
-        
+
       if (!exists) {
         arr.push(product);
         localStorage.setItem("buyed_prod", JSON.stringify(arr));
@@ -51,10 +50,10 @@ function buyprod(e) {
     });
 }
 
-function delprod(id){
-    api.delete(`/hello/${id}`).then((res) => location.reload())
-    arr = JSON.parse(localStorage.getItem("buyed_prod"));
-    arr = arr.filter(item => item.id !== id)
+function delprod(id) {
+  api.delete(`/hello/${id}`).then((res) => location.reload());
+  arr = JSON.parse(localStorage.getItem("buyed_prod"));
+  arr = arr.filter((item) => item.id !== id);
 }
 
 api.get("/hello").then((res) => showCard(res.data));

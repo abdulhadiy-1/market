@@ -48,7 +48,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
-.card .btn button{
+.card .btn button, .card .btn a{
     padding-block: 9px;
     border-radius: 20px;
     border: 1px solid green;
@@ -56,7 +56,7 @@
     font-size: 15px;
     transition: 0.5s;
 }
-.card .btn button:hover{
+.card .btn button:hover, .card .btn a:hover{
     transform: scale(1.005);
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
@@ -75,4 +75,17 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    color: inherit  ;
+    transition: 0.5s;
+}
+.korzinka:hover{
+    transform: scale(1.005);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+.k2{
+    top: 100px;
+}
+.card .btn a{
+    text-align: center;
+    text-decoration: none;
 }
